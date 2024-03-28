@@ -27,14 +27,7 @@ def predict_user_data():
     })
     
     print(user.to_string())
-    """user['Sex'] = user['Sex'].replace({'M':0, 'F':1})                                # Male : 0 , Female :1
-    user['Ascites'] = user['Ascites'].replace({'N':0, 'Y':1})                        # N : 0, Y : 1   
-    user['Drug'] = user['Drug'].replace({'D-penicillamine':0, 'Placebo':1})          # D-penicillamine : 0, Placebo : 1   
-    user['Hepatomegaly'] = user['Hepatomegaly'].replace({'N':0, 'Y':1})              # N : 0, Y : 1
-    user['Spiders'] = user['Spiders'].replace({'N':0, 'Y':1})                        # N : 0, Y : 1
-    user['Edema'] = user['Edema'].replace({'N':0, 'Y':1, 'S':-1})                    # N : 0, Y : 1, S : -1
-    user['Status'] = user['Status'].replace({'C':0, 'CL':1, 'D':-1})                 # 'C':0, 'CL':1, 'D':-1
-    """ # Predict using the trained XGBoost model
+    # Predict using the trained XGBoost model
     prediction = XGBoostmodel.predict(user)
     if prediction==[1]:
         prediction="Cirrihosis Confirmed"
