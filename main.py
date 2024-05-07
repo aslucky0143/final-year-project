@@ -3,7 +3,7 @@ from tkinter import messagebox
 import XGBoostmodel
 import pandas as pd
 def predict_user_data():
-    # Create a DataFrame with user input
+    # a DataFrame with user input
     data = {}
     for field, entry in entries.items():
         data[field] = entry.get()
@@ -30,22 +30,16 @@ def predict_user_data():
     # Predict using the trained XGBoost model
     prediction = XGBoostmodel.predict(user)
     if prediction==[1]:
-        prediction="Cirrihosis Confirmed"
+        prediction="No Cirrhosis"
     else:
-        prediction="No Cirrihosis "
+        prediction="No Cirrhosis "
     messagebox.showinfo("Prediction", prediction)
-    
 
-
-def get_status():
-    status = status_var.get()
-    messagebox.showinfo("Selected Status", f"You selected: {status}")
-
-# Create main application window
+# main application window
 root = tk.Tk()
-root.title("Categorical Data Selection")
+root.title("Cirrhosis Prediction System")
 
-# Create a variable to hold the selected options
+# a variable to hold the selected options
 gender_var = tk.IntVar()
 ascites_var = tk.IntVar()
 drug_var = tk.IntVar()
@@ -54,27 +48,27 @@ spiders_var = tk.IntVar()
 edema_var = tk.IntVar()
 status_var = tk.IntVar()
 
-# Create radio buttons for selecting gender
+# radio buttons for selecting gender
 male_radio = tk.Radiobutton(root, text="Male (0)", variable=gender_var, value=0, )
 female_radio = tk.Radiobutton(root, text="Female (1)", variable=gender_var, value=1, )
 
-# Create radio buttons for selecting ascites
+# radio buttons for selecting ascites
 no_ascites_radio = tk.Radiobutton(root, text="No Ascites (0)", variable=ascites_var, value=0, )
 yes_ascites_radio = tk.Radiobutton(root, text="Ascites (1)", variable=ascites_var, value=1, )
 
-# Create radio buttons for selecting drug
+# radio buttons for selecting drug
 penicillamine_radio = tk.Radiobutton(root, text="D-penicillamine (0)", variable=drug_var, value=0, )
 placebo_radio = tk.Radiobutton(root, text="Placebo (1)", variable=drug_var, value=1, )
 
-# Create radio buttons for selecting hepatomegaly
+# radio buttons for selecting hepatomegaly
 no_hepatomegaly_radio = tk.Radiobutton(root, text="No Hepatomegaly (0)", variable=hepatomegaly_var, value=0, )
 yes_hepatomegaly_radio = tk.Radiobutton(root, text="Hepatomegaly (1)", variable=hepatomegaly_var, value=1, )
 
-# Create radio buttons for selecting spiders
+# radio buttons for selecting spiders
 no_spiders_radio = tk.Radiobutton(root, text="No Spiders (0)", variable=spiders_var, value=0, )
 yes_spiders_radio = tk.Radiobutton(root, text="Spiders (1)", variable=spiders_var, value=1, )
 
-# Create radio buttons for selecting edema
+# radio buttons for selecting edema
 no_edema_radio = tk.Radiobutton(root, text="No Edema (0)", variable=edema_var, value=0, )
 edema_radio = tk.Radiobutton(root, text="Edema (1)", variable=edema_var, value=1, )
 resolved_edema_radio = tk.Radiobutton(root, text="Resolved Edema (-1)", variable=edema_var, value=-1, )
@@ -116,6 +110,6 @@ for field in fields:
     entries[field] = entry
     
 submit_button = tk.Button(root, text="Predict", command=predict_user_data)
-submit_button.grid(row=i+5, columnspan=2,)
+submit_button.grid(row=i+5, columnspan=6,)
 # Start the GUI event loop
 root.mainloop()

@@ -61,6 +61,10 @@ print('XGboost model Mean Accuracy = ', np.mean(acc))
 from sklearn.metrics import classification_report
 XGB_model_predict = model.predict(test)
 XGB_model_predict_proba = model.predict_proba(test)
+from sklearn.metrics import classification_report
+XGB_model_predict = model.predict(test)
+XGB_model_predict_proba = model.predict_proba(test)
+print(classification_report(y.iloc[test_index], XGB_model_predict))
 
 def predict(user):
   return model.predict(user)
