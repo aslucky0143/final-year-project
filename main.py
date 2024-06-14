@@ -92,7 +92,7 @@ edema_radio.grid(row=5,column=2)
 resolved_edema_radio.grid(row=5,column=3)
 
 entries = {}
-fields=["Age","Bilirubin","Cholesterol","Albumin","Copper","Alk_Phos","SGOT","Tryglicerides","Platelets","Prothrombin"]
+fields=["Age (In Days)","Bilirubin [mg/dl]","Cholesterol [mg/dl]","Albumin [mg/dl]","Copper [ug/day]","Alk_Phos [U/liter]","SGOT [U/ml]","Tryglicerides [mg/dl]","Platelets [ml/1000]","Prothrombin [s]"]
 i=6
 for field in fields:
     tk.Label(root, text=field).grid(row=i,column=0)
